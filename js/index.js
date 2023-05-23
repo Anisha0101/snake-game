@@ -212,6 +212,28 @@ window.addEventListener('keydown', e=>{
         
     }
 
+let btnRandom = document.querySelector('button');
+let result = document.querySelector('h1');
+
+let users = ['1','2','3','4','5'] ;
+
+function getRandomNumber(min, max) {
+    let step1 = max - min + 1;
+    let step2 = Math.random() * step1;
+    let result = Math.floor(step2) + min;
+
+    return result;
+}
+
+btnRandom.addEventListener('click', () => {
+    let index = getRandomNumber(0, users.length-1);
+    result.innerText = users[index];
+
+});
+
+
+
+
  const startingMinutes = 1;
  let time = startingMinutes * 60;
  const countdownEl = document.getElementById('countdown');
@@ -226,7 +248,12 @@ window.addEventListener('keydown', e=>{
     countdownEl.innerHTML = `${minutes} : ${seconds}`;
     time--;
  }
+ 
+/*let hexColor = `#${Math.random().toString(16).slice(2, 8).padEnd(6, 0)}`;
+console.log("~ file: index.js:5 ~ hexColor", hexColor);
 
-    
+let name = "anisha";
+console.log(name.padEnd(8, 0));
+*/
 
 });
